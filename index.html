@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ChatBot UI</title>
+    <link href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./Css/main.css">
+    <link rel="stylesheet" href="./Css/chatBot.css">
+    <link rel="shortcut icon" href="gfx/logo.png" type="image/x-icon">
+    <script src="Js/neovis.js"></script>
+    <script src="Js/neo4j-driver.js"></script>
+</head>
+<body>
+    <div class="canvas-container">
+        <div id="background-canvas"></div>
+        <button class="canvas-toggle-btn">
+            <span class="toggle-icon">▼</span>
+            <span class="toggle-text">fold canvas</span>
+        </button>
+    </div>
+
+    <div class="chatBot">
+        <div class="chatBotHeading">
+            <label for="chatTextBox" id="chatOpenTrigger">Any Queries? Ask Me!</label>
+        </div>
+        <hr>
+        <div class="chatBody">
+            <div class="chatSession">
+            </div>
+        </div>
+        <form class="chatForm" autocomplete="off">
+            <div class="typingArea">
+                <textarea name="chatInput" id="chatTextBox" class="textArea" 
+                    onblur="if(!validateMessage()) this.value = 'Type here...'" 
+                    onfocus="if(!validateMessage()) this.value = ''">
+                </textarea>
+                <button type="submit" class="sendButton" id="sendButton">
+                    <img src="./Gfx/send.svg" alt="Send">
+                </button>
+            </div>
+            <button type="button" id="chatCloseTrigger">Close Chat!</button>
+        </form>
+    </div>
+
+    <script src="./Js/chatBotConversation.js"></script>
+    <script src="./Js/chatBotValidate.js"></script>
+    <script src="./Js/chatBotAnimate.js"></script>
+    <script src="./Js/canvasOperation.js"></script>
+</body>
+</html>
