@@ -1,6 +1,7 @@
 Get started:
 ``` bash
 conda create -n ui python=3.12
+conda activate ui
 pip install -r requirements.txt
 flask run
 ```
