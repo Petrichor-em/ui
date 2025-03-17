@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ChatBot UI</title>
+    <link href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/main.css">
+    <link rel="stylesheet" href="/static/css/chatBot.css">
+    <link rel="stylesheet" href="/static/css/dashboard.css">
+    <link rel="shortcut icon" href="/static/gfx/logo.png" type="image/x-icon">
+    <script src="/static/js/neovis.js"></script>
+    <script src="/static/js/neo4j-driver.js"></script>
+    <script src="/static/js/dashboard.js"></script>
+</head>
+<body>
+    <button id="show-graph-btn" class="show-graph-btn">Show Graph</button>
+    <div class="canvas-container">
+        <div id="background-canvas"></div>
+        <button class="canvas-toggle-btn">
+            <span class="toggle-icon">▼</span>
+            <span class="toggle-text">fold canvas</span>
+        </button>
+    </div>
+    <div class="dashboard">
+        <button type="button" class="dashboard-toggle-btn" id="dashboard-toggle-btn">
+            <img src="/static/gfx/dashboard-icon.svg" alt="Dashboard">
+        </button>
+        <div class="dashboard-content" id="dashboard-content">
+            <ul>
+                <li><a href="/doc-lib">Document Library</a></li>
+                <li><a href="/page2">Page 2</a></li>
+                <li><a href="/page3">Page 3</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="chatBot">
+        <div class="chatBotHeading">
+            <label for="chatTextBox" id="chatOpenTrigger">Any Queries? Ask Me!</label>
+        </div>
+        <hr>
+        <div class="chatBody">
+            <div class="chatSession">
+            </div>
+        </div>
+        <form class="chatForm" autocomplete="off">
+            <div class="typingArea">
+                <textarea name="chatInput" id="chatTextBox" class="textArea" 
+                    onblur="if(!validateMessage()) this.value = 'Type here...'" 
+                    onfocus="if(!validateMessage()) this.value = ''">
+                </textarea>
+                <button type="submit" class="sendButton" id="sendButton">
+                    <img src="/static/gfx/send.svg" alt="Send">
+                </button>
+            </div>
+            <button type="button" id="chatCloseTrigger">Close Chat!</button>
+        </form>
+    </div>
+
+    <script src="/static/js/chatBotConversation.js"></script>
+    <script src="/static/js/chatBotValidate.js"></script>
+    <script src="/static/js/chatBotAnimate.js"></script>
+    <script src="/static/js/canvasOperation.js"></script>
+</body>
+</html>
